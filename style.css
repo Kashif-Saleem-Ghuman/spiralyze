@@ -268,6 +268,10 @@ select option {
     display: none;
 }
 
+#curve-desktop {
+    display: none;
+}
+
 #curve-mobile {
     display: block;
     position: absolute;
@@ -286,11 +290,20 @@ select option {
     display: block;
 }
 
+.contact-no{
+    display: none;
+}
+
+/* Tablet Styles */
 @media (min-width: 768px) {
 
     .container {
         padding: 0 60px 150px;
         position: relative;
+    }
+
+    #curve-desktop{
+        display:none
     }
 
     #curve-mobile {
@@ -433,5 +446,39 @@ select option {
 
     .form-group:nth-child(5) {
         grid-column: 1 / -1;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    main{
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 100px;
+    }
+
+    .contact-form{
+        margin-top: 0;
+    }
+
+    #curve-tablet{
+        display: none;
+    }
+    #curve-desktop{
+        display: block;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+        line-height: 0;
+        display: block;
+        overflow: hidden;
+    }
+
+    #curve-desktop img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
 }
