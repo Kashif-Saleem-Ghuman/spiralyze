@@ -327,6 +327,10 @@ select option {
     display: none;
 }
 
+.group-photos{
+    display: none;
+}
+
 /* Tablet Styles */
 @media (min-width: 768px) {
 
@@ -395,6 +399,8 @@ select option {
     }
 
     .we-understand h2 {
+        display: flex;
+        gap: 10px;
         font-size: 64px;
         text-align: left;
         margin-bottom: 50px;
@@ -532,6 +538,22 @@ select option {
     .form-group:nth-child(5) {
         grid-column: 1 / -1;
     }
+
+    .group-photos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+        background-color: #F5F5F5;
+        gap: 30px
+    }
+
+   .group-photos img{
+        width: 224px;
+        height: 128px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
 }
 
 /* Desktop Styles */
@@ -605,6 +627,22 @@ select option {
         grid-column: 3 / 4;
         grid-row: 1 / 2;
         margin-top: 0;
+    }
+
+    .group-photos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 80px;
+        background-color: #F5F5F5;
+        gap: 36px
+    }
+
+   .group-photos img{
+        width:  371px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
     }
 
   
