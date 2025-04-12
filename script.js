@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
 
     menuToggle.addEventListener('click', () => {
         // Toggle menu visibility
-        navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+        const isMenuOpen = navMenu.style.display === 'block';
+        navMenu.style.display = isMenuOpen ? 'none' : 'block';
 
         // Toggle hamburger/cross animation
         menuToggle.classList.toggle('active');
 
-        // Add transition styles when menu is shown
-        if (navMenu.style.display === 'block') {
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '80px';
-            navMenu.style.left = '0';
-            navMenu.style.right = '0';
-            navMenu.style.background = '#1B3B36';
-            navMenu.style.padding = '20px';
-            navMenu.style.zIndex = '10';
+        // Toggle body scroll
+        if (!isMenuOpen) {
+            // When opening menu
+            body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            // When closing menu
+            body.style.overflow = ''; // Restore scrolling
         }
     });
 
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth >= 1024) {
             navMenu.style.display = '';
             menuToggle.classList.remove('active');
+            body.style.overflow = ''; // Restore scrolling
         }
     });
 });

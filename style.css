@@ -35,6 +35,7 @@ header {
 .nav-menu {
     display: none;
     list-style: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .logo img {
@@ -58,15 +59,15 @@ header {
 }
 
 .menu-toggle span:nth-child(1) {
-    transform-origin: left;
+    transform-origin: center;
 }
 
 .menu-toggle span:nth-child(3) {
-    transform-origin: left;
+    transform-origin: center;
 }
 
 .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
 .menu-toggle.active span:nth-child(2) {
@@ -74,7 +75,12 @@ header {
 }
 
 .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg);
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu-toggle.active {
+    position: relative;
+    z-index: 11;
 }
 
 @media (max-width: 1023px) {
@@ -87,17 +93,42 @@ header {
     .nav-menu[style*="display: block"] {
         transform: translateY(0);
         opacity: 1;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(27, 59, 54, 0.98);
+        backdrop-filter: blur(100px);
+        padding: 30px 20px;
+        z-index: 10;
+        overflow-y: auto;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
     .nav-menu li {
-        margin: 15px 0;
+        margin: 20px 0;
+        text-align: center;
     }
 
     .nav-menu a {
         color: #fff;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 18px;
         display: block;
+        padding: 12px 15px;
+        font-weight: 600;
+        background-color: rgba(42, 125, 108, 0.95);
+        border-radius: 6px;
+        margin: 0 auto;
+        max-width: 250px;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-menu a:hover {
+        background-color: rgba(42, 125, 108, 1);
     }
 }
 
@@ -220,7 +251,7 @@ select option {
 
 /* We Understand section styles */
 .we-understand {
-    text-align: center;
+    text-align: left;
     padding: 40px 20px;
     position: relative;
     z-index: 2;
@@ -245,8 +276,9 @@ select option {
 }
 
 .success-rate {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 12px 24px;
     background: transparent;
     border: 2px solid #7DDFD3;
@@ -257,6 +289,7 @@ select option {
     font-weight: 600;
     margin-top: 20px;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 .success-rate:hover {
@@ -297,6 +330,26 @@ select option {
 /* Tablet Styles */
 @media (min-width: 768px) {
 
+    .contact-no{
+        display: flex;
+        justify-content: end;
+    }
+
+    .contact-no a{
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .contact-no a:hover{
+        text-decoration: underline;
+    }
+
+    .contact-no a span{
+        margin-left: 10px;
+        color: #5BC8AF;
+    }
     .container {
         padding: 0 60px 150px;
         position: relative;
@@ -369,9 +422,39 @@ select option {
     .we-understand .content-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        grid-template-rows: auto auto;
+        gap: 24px;
+        position: relative;
     }
-    
+
+    .we-understand .content-wrapper p {
+        margin: 0;
+    }
+
+    .older-adults-one{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .older-adults-two{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .simulate-contacts-wrapper {
+        display: grid;
+        grid-template-rows: 1fr 1fr ;
+        grid-template-columns: 1fr;
+        grid-column: 2 / 3;
+        grid-row: 1 / 3; 
+        gap: 24px;
+      }
+      
+      .stimulate-contacts {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+
     .success-rate {
         display: inline-flex;
         align-items: center;
@@ -384,8 +467,10 @@ select option {
         text-decoration: none;
         font-size: 18px;
         font-weight: 600;
-        margin-top: 20px;
         width: 100%;
+        height: 52px;
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
     }
     
     .success-rate .arrow {
@@ -461,6 +546,12 @@ select option {
         margin-top: 0;
     }
 
+
+    .header-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     #curve-tablet{
         display: none;
     }
@@ -481,4 +572,40 @@ select option {
         height: auto;
         display: block;
     }
+    
+    /* 3-column layout for We Understand section on desktop */
+    .we-understand .content-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0 20px;
+    }
+
+    .older-adults-one{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .older-adults-two{
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .simulate-contacts-wrapper {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .simulate-contacts{
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+   .success-rate {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        margin-top: 0;
+    }
+
+  
 }
