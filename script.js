@@ -155,3 +155,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle window resize
     window.addEventListener('resize', updateCarousel);
 });
+
+
+// Section below caraousel
+
+document.addEventListener('DOMContentLoaded', function() {
+    const tooltipIcons = document.querySelectorAll('.tooltip-icon');
+    
+    function setupTooltipBehavior() {
+        const isDesktop = window.innerWidth >= 1024;
+        
+        tooltipIcons.forEach(icon => {
+            // Clone the icon to remove all existing event listeners
+            const newIcon = icon.cloneNode(true);
+            icon.parentNode.replaceChild(newIcon, icon);
+            
+            if (isDesktop) {
+                // Desktop - hover behavior
+                newIcon.addEventListener('mouseenter', function() {
+                    this.classList.add('active');
+                });
+                newIcon.addEventListener('mouseleave', function() {
+                    this.classList.remove('active');
+                });
+            } else {
+                // Mobile/Tablet - click behavior
+                newIcon.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Close any other open tooltips
+                    document.querySelectorAll('.tooltip-icon').forEach(t => {
+                        if (t !== newIcon) t.classList.remove('active');
+                    });
+                    this.classList.toggle('active');
+                });
+            }
+        });
+    }
+
+    // Initial setup
+    setupTooltipBehavior();
+    
+    // Close tooltips when clicking elsewhere
+    document.addEventListener('click', function() {
+        tooltipIcons.forEach(icon => {
+            icon.classList.remove('active');
+        });
+    });
+    
+    // Update behavior on window resize
+    window.addEventListener('resize', setupTooltipBehavior);
+});
