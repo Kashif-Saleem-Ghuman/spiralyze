@@ -331,6 +331,78 @@ select option {
     display: none;
 }
 
+.carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 100%;
+    cursor: grab;
+}
+
+.carousel.is-dragging {
+    cursor: grabbing;
+    transition: none;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    padding: 20px;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.testimonial-content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.testimonial-meta {
+    color: #666;
+    font-size: 14px;
+}
+
+.carousel-nav {
+    display: none;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
 /* Tablet Styles */
 @media (min-width: 768px) {
 
@@ -554,6 +626,41 @@ select option {
         object-fit: cover;
         border-radius: 10px;
     }
+
+    .carousel-nav {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+    }
+
+    .carousel-btn {
+        pointer-events: all;
+        background: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        font-size: 20px;
+        color: #333;
+    }
+
+    .carousel-btn:hover {
+        background: #f0f0f0;
+    }
+
+    .carousel-slide {
+        min-width: calc(100% / 2);
+    }
 }
 
 /* Desktop Styles */
@@ -645,5 +752,7 @@ select option {
         border-radius: 8px;
     }
 
-  
+    .carousel-slide {
+        min-width: calc(100% / 3);
+    }
 }
