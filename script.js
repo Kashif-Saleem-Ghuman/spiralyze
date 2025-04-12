@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// Caraousel
+
 document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel');
     const slides = document.querySelectorAll('.carousel-slide');
