@@ -29,6 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
             body.style.overflow = ''; // Restore scrolling
         }
     });
+    
+    // Handle service item tooltips
+    const serviceItems = document.querySelectorAll('.service-item');
+    
+    serviceItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const tooltip = item.querySelector('.tooltip');
+            if (tooltip) {
+                tooltip.classList.add('active');
+            }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            const tooltip = item.querySelector('.tooltip');
+            if (tooltip) {
+                tooltip.classList.remove('active');
+            }
+        });
+    });
 });
 
 
