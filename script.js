@@ -224,3 +224,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update behavior on window resize
     window.addEventListener('resize', setupTooltipBehavior);
 });
+
+
+// Footer
+
+document.addEventListener('DOMContentLoaded', function() {
+    const videoPlaceholder = document.getElementById('videoPlaceholder');
+    const playButton = document.getElementById('playButton');
+    const videoPlayer = document.getElementById('videoPlayer');
+    
+    // Replace with your actual video URL
+    const videoUrl = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1';
+    
+    function playVideo() {
+        // Button press animation
+        playButton.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            playButton.style.transform = 'scale(1)';
+        }, 200);
+        
+        // Load and play video
+        videoPlayer.innerHTML = `<iframe src="${videoUrl}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        videoPlayer.classList.add('active');
+        videoPlaceholder.style.display = 'none';
+    }
+    
+    // Event listeners
+    playButton.addEventListener('click', playVideo);
+    videoPlaceholder.addEventListener('click', playVideo);
+});
