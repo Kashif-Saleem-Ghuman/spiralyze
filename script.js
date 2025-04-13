@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const playButton = document.getElementById('playButton');
     const videoPlayer = document.getElementById('videoPlayer');
     
-    // Replace with your actual video URL
-    const videoUrl = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1';
+    // Using a reliable YouTube video URL (YouTube's own video about YouTube)
+    const videoUrl = 'https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1';
     
     function playVideo() {
         // Button press animation
