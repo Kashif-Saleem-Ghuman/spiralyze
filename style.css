@@ -451,6 +451,7 @@ select option {
 
 .services-header {
     margin-bottom: 32px;
+    width: 100%;
 }
 
 .services-title {
@@ -460,20 +461,43 @@ select option {
     color: #1a1a1a;
 }
 
+.services-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .services-subtitle {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 16px;
     color: #1a1a1a;
+    font-family: "Inter", sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    width: 100%;
+}
+
+.services-subtitle span {
+    font-weight: 800;
+}
+
+.we-outline{
+    -webkit-text-stroke: 1px #333;
+    color: transparent;
+    font-weight: 300;
 }
 
 .services-description {
     margin-bottom: 24px;
     color: #4a4a4a;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .services-description p {
     margin-bottom: 16px;
+    width: 100%;
 }
 
 .services-grid {
@@ -506,14 +530,6 @@ select option {
     font-size: 15px;
 }
 
-.holistic-note {
-    font-style: italic;
-    color: #4a4a4a;
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid #eee;
-    grid-column: 1 / -1;
-}
 
 /* Tooltip Icon Styles */
 .tooltip-icon {
@@ -544,7 +560,7 @@ select option {
     z-index: 10;
     bottom: -235px;
     top: 300;
-    left: -121px;
+    left: -17vw;
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s;
@@ -600,7 +616,7 @@ select option {
         position: absolute;
         z-index: 10;
         bottom: -225px;
-        left: -156px;
+        left: -39vw;
         transform: translateX(-50%);
         opacity: 0;
         transition: opacity 0.3s;
@@ -609,10 +625,9 @@ select option {
         margin-top: 15px;
     }
 }
-    
-    .service-item {
-        position: relative;
-    }
+
+.service-item {
+    position: relative;
 }
 
 
@@ -862,8 +877,33 @@ select option {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .holistic-note {
-        margin-top: 24px;
+
+    .services-info-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        gap: 32px 24px;
+        width: 100%;
+    }
+
+    .services-subtitle {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    .services-description {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-rows: 1fr;
+        gap: 0 20px;
+        width: 100%;
+    }
+
+    .loneliness {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
     }
 
 
@@ -1003,7 +1043,6 @@ select option {
     }
 
     .services-header {
-        max-width: 800px;
         margin-bottom: 48px;
     }
 
@@ -1030,12 +1069,46 @@ select option {
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
-    .holistic-note {
-        margin-top: 40px;
-        padding-top: 32px;
-        text-align: center;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
+    .services-info-wrapper{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 32px 24px;
+        width: 100%;
+        width: 100%;
+        gap:0
     }
+
+    .services-subtitle{
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+    }
+
+
+    .services-description{
+        grid-column: 2 / 4;
+    }
+
+    .tooltip .tooltip-text {
+        visibility: hidden;
+        width: 293px;
+        background-color: #297C6B;
+        color: white;
+        text-align: left;
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        position: absolute;
+        z-index: 10;
+        bottom: -235px;
+        top: 300;
+        left: -8vw;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-top: 15px;
+    }
+
 }
